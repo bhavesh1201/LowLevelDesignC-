@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LowLevelDesignC_.BehaviouralPattern.MementoPattern
+namespace LowLevelDesignC_.BehaviouralPattern.MementoPattern.TextEditorApp
 {
 
     //Momento Class : Stores the internal state of the text editor

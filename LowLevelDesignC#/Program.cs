@@ -1,5 +1,6 @@
 ﻿
 using LowLevelDesignC_.BehaviouralPattern.MementoPattern.GraphicEditorApp;
+using LowLevelDesignC_.BehaviouralPattern.ObserverPattern.WeatherForcastApp.GoodCode;
 using System;
 
 namespace MyApp
@@ -7,7 +8,7 @@ namespace MyApp
     internal class Program
     {
 
-
+        //Call below method to test undo functionality (implemented using momento pattern) in Graphic Editor App
         public static void  GraphicEditorCase()
         {
             
@@ -42,7 +43,8 @@ namespace MyApp
         static void Main(string[] args)
         {
 
-            GraphicEditorCase();    
+            WeatherForcastCase();
+           // GraphicEditorCase();    
             //  Console.WriteLine("Hello World!");
 
             //TextEditor newText= new TextEditor();
@@ -74,6 +76,27 @@ namespace MyApp
             //nt.read();
 
 
+        }
+
+        public static void WeatherForcastCase()
+        {
+            WeatherForcase wfc = new WeatherForcase();
+            IphoneDevice iphoneDevice = new IphoneDevice();
+
+            
+            AndriodDevive andriodDevive= new AndriodDevive();
+            WindowsDevice windowsDevice = new WindowsDevice();
+            wfc.addObserver(andriodDevive);
+            wfc.addObserver(iphoneDevice);
+            //wfc.addObserver(iphoneDevice);
+
+            wfc.addObserver(windowsDevice);
+
+
+            wfc.setTemprature(32.4f);
+            wfc.setTemprature(3.4f);
+            wfc.removeObserver(iphoneDevice);
+            wfc.setTemprature(5.4f);
         }
     }
 }
