@@ -1,7 +1,12 @@
 ﻿
 using LowLevelDesignC_.BehaviouralPattern.MementoPattern.GraphicEditorApp;
 using LowLevelDesignC_.BehaviouralPattern.ObserverPattern.WeatherForcastApp.GoodCode;
+using LowLevelDesignC_.BehaviouralPattern.StatergyPattern.FlexiTextFormatterApplication;
+using LowLevelDesignC_.BehaviouralPattern.StatergyPattern.FlexiTextFormatterApplication.FormatterService;
+using LowLevelDesignC_.BehaviouralPattern.StatergyPattern.PaymentMethod.CorrectCode;
+using LowLevelDesignC_.BehaviouralPattern.StatergyPattern.PaymentMethod.CorrectCode.PaymentMethods;
 using System;
+using System.Runtime.Serialization;
 
 namespace MyApp
 {
@@ -40,11 +45,34 @@ namespace MyApp
             ct.undo(ge);
             ge.read();  
         }
+
+        public static void PaymentMethodCase()
+        {
+            PaymentService ps = new PaymentService(new CreditCard());
+            ps.Pay();
+            PaymentService ps2 = new PaymentService(new UPI());
+            ps2.Pay();
+
+        }
+
+        public static void FlexiTextFormatterCase()
+        {
+            FormatterServuce fs = new FormatterServuce();
+            fs.SetText("Hello World");
+            fs.SetTextFormat(new HtmlTextFormatter());
+            fs.Formattext();
+
+            fs.SetTextFormat(new MarkdownFormatter());
+            fs.Formattext();
+        }
         static void Main(string[] args)
         {
 
-            WeatherForcastCase();
-           // GraphicEditorCase();    
+
+            FlexiTextFormatterCase();
+            //PaymentMethodCase();
+            //  WeatherForcastCase();
+            // GraphicEditorCase();    
             //  Console.WriteLine("Hello World!");
 
             //TextEditor newText= new TextEditor();
